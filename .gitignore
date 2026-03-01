@@ -1,0 +1,19 @@
+# Agent/skill files
+.agent/
+.gemini/
+.antigravity-skills-repo/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Temp
+*.tmp
+*.log
