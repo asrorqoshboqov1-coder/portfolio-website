@@ -154,39 +154,40 @@ body {
    ============================================ */
 .navbar {
   position: fixed;
-  top: 32px;
+  top: 24px;
   left: 50%;
   transform: translateX(-50%);
-  width: fit-content;
-  z-index: 1000;
-  pointer-events: none;
+  width: calc(100% - 48px);
+  max-width: 1200px;
+  z-index: 1100;
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: var(--brd-glass);
+  border-radius: var(--rd-pill);
+  padding: 12px 24px;
+  transition: all 0.5s var(--t-smooth);
+}
+
+.navbar.scrolled {
+  top: 16px;
+  background: rgba(10, 10, 15, 0.9);
+  padding: 10px 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .nav-inner {
   display: flex;
   align-items: center;
-  gap: 40px;
-  padding: 8px 8px 8px 24px;
-  background: rgba(10, 10, 15, 0.4);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: var(--brd-glass);
-  border-radius: var(--rd-pill);
-  pointer-events: auto;
-  transition: all 0.5s var(--t-smooth);
-}
-
-.navbar.scrolled .nav-inner {
-  background: rgba(10, 10, 15, 0.85);
-  padding: 6px 6px 6px 20px;
-  gap: 32px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  justify-content: space-between;
+  width: 100%;
 }
 
 .nav-logo {
   font-family: var(--ff-display);
   font-weight: 800;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   color: var(--tx-white);
   letter-spacing: -0.03em;
   display: flex;
@@ -205,29 +206,32 @@ body {
 .nav-links {
   display: flex;
   gap: 32px;
+  align-items: center;
 }
 
 .nav-links a {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--tx-muted);
   transition: all 0.3s var(--t-smooth);
   text-decoration: none;
+  letter-spacing: 0.02em;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
   color: var(--tx-white);
 }
 
 .nav-cta {
   background: var(--tx-white);
   color: var(--bg-deep);
-  padding: 10px 24px;
+  padding: 10px 28px;
   border-radius: var(--rd-pill);
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.85rem;
   transition: all 0.3s var(--t-smooth);
+  border: none;
+  cursor: pointer;
 }
 
 .nav-cta:hover {
