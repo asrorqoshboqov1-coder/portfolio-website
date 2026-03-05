@@ -227,6 +227,57 @@ function initCounters() {
   counters.forEach(c => observer.observe(c));
 }
 
+// ==================== CONTACT FORM ====================
+function initContactForm() {
+  const form = document.getElementById('contactForm');
+  const btn = document.getElementById('submitBtn');
+  if (!form || !btn) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const originalText = btn.innerText;
+    btn.innerText = 'YUBORILMOQDA...';
+    btn.disabled = true;
+
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      message: document.getElementById('message').value
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        btn.innerText = 'YUBORILDI!';
+        btn.style.backgroundColor = '#10b981';
+        form.reset();
+      } else {
+        throw new Error(result.error || 'Xatolik yuz berdi');
+      }
+    } catch (error) {
+      console.error('Submit error:', error);
+      btn.innerText = 'XATOLIK!';
+      btn.style.backgroundColor = '#ef4444';
+    } finally {
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.disabled = false;
+        btn.style.backgroundColor = '';
+      }, 3000);
+    }
+  });
+}
+
 // ==================== INITIALIZE ====================
 document.addEventListener('DOMContentLoaded', () => {
   // Particles
@@ -249,6 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initReveals();
   initMagneticButtons();
   initCounters();
+  initContactForm();
 
   // Smooth scroll for nav links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

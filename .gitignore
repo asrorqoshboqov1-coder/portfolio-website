@@ -14,6 +14,11 @@ Thumbs.db
 .DS_Store
 desktop.ini
 
+# Node
+node_modules/
+.env
+
 # Temp
 *.tmp
 *.log
+.vercel
