@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: asror-portfolio
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RECEIVER_EMAIL
+        value: asrorqoshboqov1@gmail.com
+      - key: NODE_ENV
+        value: production
