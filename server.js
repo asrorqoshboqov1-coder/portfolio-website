@@ -58,7 +58,7 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // Fallback — serve index.html for any unmatched route
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
