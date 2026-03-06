@@ -338,6 +338,7 @@ body {
 .hero-title .typing-text {
   background: var(--grad-main);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -781,6 +782,16 @@ body {
   border: var(--brd-glass);
   border-radius: var(--rd-lg);
   backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s var(--t-smooth);
+}
+
+.contact-form:hover {
+  transform: translateY(-8px);
+  background: var(--bg-card-hover);
+  border-color: var(--tx-subtle);
+  box-shadow: var(--sh-glow);
 }
 
 .form-group {
