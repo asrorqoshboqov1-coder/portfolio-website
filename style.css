@@ -478,7 +478,7 @@ body {
   transform: translateY(-10px);
   background: var(--bg-card-hover);
   border-color: var(--tx-subtle);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--sh-glow);
 }
 
 .project-image {
